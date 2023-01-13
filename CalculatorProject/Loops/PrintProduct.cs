@@ -8,7 +8,7 @@ namespace CalculatorProject.Loops
 {
     public class PrintProduct
     {
-        public static List<Product> products = new List<Product>();
+        private static List<Product> products = new List<Product>();
 
         public static void CreateListProduct()
         {
@@ -22,7 +22,7 @@ namespace CalculatorProject.Loops
 
             var oil = new Product
             {
-                Id = 2,
+                Id = 1,
                 Name = "Aceite",
                 Price = 35.27f
             };
@@ -30,34 +30,74 @@ namespace CalculatorProject.Loops
 
             var game = new Product
             {
-                Id = 3,
+                Id = 1,
                 Name = "Juego",
                 Price = 39.99f
             };
-            products.Add(game);         
+            products.Add(game);
+
+            var shoes = new Product(4, "Zapatos", 20.99f);
+            products.Add(shoes);
+
+            System.Console.WriteLine(shoes.ToString());
         }
 
-        public static List<Product> GetProductsGreaterThan30WithForEach() { 
-            var productsGreaterThan30 = new List<Product>();
-
-            foreach (var product in products)
+        public List<Product> GetProductsGreaterThan30WithFor()
+        {
+            if (products.Count == 0)
+                CreateListProduct();
+            var lista = new List<Product>();
+            for (int i = 0; i < products.Count; i++)
             {
-                if (product.Price > 30.00f) 
+                if (products[i].Price > 30.00f)
                 {
-                    productsGreaterThan30.Add(product);
+                    lista.Add(products[i]);
                 }
             }
 
-            return productsGreaterThan30;
+            return lista ;
         }
+        public List<Product> GetProductsGreaterThan30WithForEach()
+        {
+            if (products.Count == 0)
+                CreateListProduct();
+            var lista = new List<Product>();
+            foreach (var i in products)
+            {
+                if (i.Price > 30.00f)
+                {
+                    lista.Add(i);
+                }
+            }
 
-        public static List<Product> GetProductsGreaterThan30WithLinq()
-        { 
-            IEnumerable<Product> productsGreaterThan30 =
-                from product in products
-                where product.Price > 30.00f
-                select product;
-            return productsGreaterThan30.ToList();
+            return lista;
+        }
+        public List<Product> GetProductsGreaterThan30WithWhile()
+        {
+            if (products.Count == 0)
+                CreateListProduct();
+            var lista = new List<Product>();
+            var i = 0;
+            while (i < products.Count)
+            {
+                if (products[i].Price > 30.00f)
+                {
+                    lista.Add(products[i]);
+                }
+                i++;
+            }
+
+            return lista;
+        }
+        public List<Product> GetProductsGreaterThan30WithLinq()
+        {
+            if (products.Count == 0)
+                CreateListProduct();
+            var lista = (from productGreaterThan30 in products 
+                         where productGreaterThan30.Price > 30.00f 
+                         select productGreaterThan30).ToList();
+
+            return lista;
         }
     }
 }

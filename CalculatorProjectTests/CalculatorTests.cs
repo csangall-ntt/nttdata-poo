@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CalculatorProject;
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,25 +12,23 @@ namespace CalculatorProject.Tests
     public class CalculatorTests
     {
         Calculator calculator = new Calculator();
-
         [TestMethod()]
         public void AddTest()
         {
-            //Calculator calculator = new Calculator();
             Assert.IsTrue(calculator.Add(2, 2) == 4);
-            Assert.IsFalse(calculator.Add(2, 2) == 3);
+            Assert.IsFalse(calculator.Add(2, 2) == 5);
         }
 
         [TestMethod()]
         public void SubstractTest()
         {
-            Assert.IsTrue(calculator.Substract(2, 2) == 0);
+            Assert.IsTrue(calculator.Substract(4, 2) == 2);
         }
 
         [TestMethod()]
         public void MultiplyTest()
         {
-            Assert.IsTrue(calculator.Multiply(3, 2) == 6);
+            Assert.IsTrue(calculator.Multiply(2, 4) == 8);
         }
 
         [TestMethod()]

@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6C75C092-A570-4F60-9B3A-C14F054BEB73}</ProjectGuid>
+    <ProjectGuid>{5B4A7686-9FA5-482F-A430-E19AFDA5998D}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>CalculatorProject</RootNamespace>
     <AssemblyName>CalculatorProject</AssemblyName>
@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>CalculatorProject.PlanDePensiones.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,6 +49,10 @@
     <Compile Include="Calculator.cs" />
     <Compile Include="Loops\PrintProduct.cs" />
     <Compile Include="Loops\Product.cs" />
+    <Compile Include="PlanDePensiones\Calculo.cs" />
+    <Compile Include="PlanDePensiones\PlanDePensiones.cs" />
+    <Compile Include="PlanDePensiones\Pregunta.cs" />
+    <Compile Include="PlanDePensiones\Program.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
